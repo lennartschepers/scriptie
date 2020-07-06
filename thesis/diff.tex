@@ -1,0 +1,1186 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL thesis-IK.tex        Mon Jul  6 00:17:49 2020
+%DIF ADD revisedtThesis.tex   Mon Jul  6 00:18:33 2020
+% Arsclassica Article % LaTeX Template
+% Version 1.1 (10/6/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Lorenzo Pantieri (http://www.lorenzopantieri.net) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+% Johan Bos (johan.bos@rug.nl)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+10pt, % Main document font size
+a4paper, % Paper type, use 'letterpaper' for US Letter paper
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+headinclude,footinclude, % Extra spacing for the header and footer
+%BCOR5mm, % Binding correction
+] {book}% {scrartcl}
+
+%DIF 31d31
+%DIF < \input{structure.tex} % Include the structure.tex file which specified the document structure and layout
+%DIF -------
+
+%DIF 33a32-34
+\input{structure.tex} % Include the structure.tex file which specified the document structure and layout %DIF > 
+\usepackage{amsmath} %DIF > 
+\usepackage{float} %DIF > 
+%DIF -------
+
+%----------------------------------------------------------------------------------------
+%	HYPHENATION
+%----------------------------------------------------------------------------------------
+% Specify custom hyphenation points for particular words with dashes where
+% hyphenation is allowed, or alternatively, don't put any dashes in a
+% word to prevent hyphenation altogether. Expand this list as needed.
+\hyphenation{Fortran hy-phen-ation}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR(S)
+%----------------------------------------------------------------------------------------
+
+\title{\normalfont\spacedallcaps{title}} % The article title
+
+\author{\spacedlowsmallcaps{author}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+
+\date{} % An optional date to appear under the author(s)
+
+%----------------------------------------------------------------------------------------
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
+
+\pagestyle{scrheadings} % Enable the headers specified in this block
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{figure}[h!] %  figure placement: here, top, bottom, or page
+\includegraphics[width=4in]{ruglogo} 
+% \includegraphics[width=4in]{ruglogo-nl}   % Dutch version
+\end{figure}
+
+\begin{center}
+\vspace{30 mm}
+\begingroup \linespread{1,75} \selectfont 
+\textsc{\LARGE Language and Dialect identification}\\
+	\textsc{\Large How Twitter can be used to create a corpus of a specific (regional) language}\\[1,5cm]
+\endgroup
+
+Lennart Albert Schepers\\[2,5cm]
+
+\end{center}
+\vfill
+\textbf{Bachelor thesis}\\  %\textbf{Master thesis}\\
+Informatiekunde\\  %Information Science\\
+Lennart Albert Schepers\\
+S2922916\\
+\today
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\pagenumbering{roman}
+\chapter*{Abstract}
+\markboth{Abstract}{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Language identification, especially when nuanced down to regional language identification, is a rather new area in the field of machine learning. This work focusses on the generation of a corpus of messages submitted to Twitter written in both Frisian and the neighboring regional language of Gronings. With the help of queries that consist of \DIFdelbegin \DIFdel{multiple, carefully }\DIFdelend \DIFaddbegin \DIFadd{a growing list of }\DIFaddend selected keywords, an annotated corpus of Gronings \DIFdelbegin \DIFdel{, Fries and Dutch }\DIFdelend \DIFaddbegin \DIFadd{and Frisian }\DIFaddend was compiled. On \DIFdelbegin \DIFdel{this corpus, two }\DIFdelend \DIFaddbegin \DIFadd{these corpora, three }\DIFaddend machine learning models are trained: a Naive Bayes model\DIFaddbegin \DIFadd{, a logistic regression model }\DIFaddend and a support vector classification model. \DIFdelbegin \DIFdel{Both }\DIFdelend \DIFaddbegin \DIFadd{All }\DIFaddend models achieved high accuracy during \DIFdelbegin \DIFdel{testing}\DIFdelend \DIFaddbegin \DIFadd{development}\DIFaddend . For the task of distinguishing \DIFdelbegin \DIFdel{Frisian and Gronings from Dutch, the Naive Bayes model returned an average F-measure of 0.990535 and the SVC model achieved an average F-measure of 0.994913}\DIFdelend \DIFaddbegin \DIFadd{Gronings from non-Gronings a support vector machine reached a weighted f-measure of 0.93. For the task of distinguishing Frisian from non-Frisian a naive Bayes classifier reached a weighted f-measure of 0.83}\DIFaddend .
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+\clearpage
+\setcounter{tocdepth}{3} % Set the depth of the table of contents to show sections and subsections only
+\tableofcontents % Print the table of contents
+
+%\listoffigures % Print the list of figures (optional, only if you have many figures)
+
+%\listoftables % Print the list of tables (optional, only if you have many tables)
+
+%\lstlistoflistings
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	Preface
+%----------------------------------------------------------------------------------------
+
+\chapter*{Preface}
+\markboth{Preface}{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+Special thanks to Martijn Bartelds for supervising and guiding the process of writing this thesis. The isolation due to the Corona epidemic made concentrating on tasks like these much harder, but you provided thorough and honest feedback which helped me a lot.
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\chapter{Introduction}
+\pagenumbering{arabic}
+
+\DIFdelbegin \DIFdel{Textual communication is becoming increasingly important. In the digital age people are expressing themselves via relatively short messages on various social networks \mbox{%DIFAUXCMD
+\citep{Hughes}}\hspace{0pt}%DIFAUXCMD
+.
+The creation of such corpora resulting from Twitter is interesting because they do not yet exist. Currently Twitter labels tweets in only }\DIFdelend \DIFaddbegin \DIFadd{As Social media services have exponentially grown in user bases, conversations happen increasingly often through social media \mbox{%DIFAUXCMD
+\citep{globalization}}\hspace{0pt}%DIFAUXCMD
+.
+With over 320 million users worldwide, Twitter is no exception to this }\footnote{\DIFadd{https://www.statista.com/statistics/282087/number-of-monthly-active-twitter-users/}}\DIFadd{. With the growth of text-based social media services like Twitter comes an increased amount of user-generated text that is available online. With its millions of users, Twitter can be a unique source of descriptive linguistic data from all around the world. Providing user generated messages not only in the }\DIFaddend 34 languages \DIFdelbegin \DIFdel{and no dialects}\footnote{\DIFdel{https://developer.twitter.com/en/docs/twitter-for-websites/twitter-for-websites-supported-languages/overview}}%DIFAUXCMD
+\addtocounter{footnote}{-1}%DIFAUXCMD
+\DIFdel{.
+The process of automatically assigning labels to dialects could be very interesting from a linguistic point of view because this new data could be used to get more insight on phenomena that are still being researched. Examples of this could be that creating a corpus of one or more (regional ) languages through the plethora of short messages that Twitter provides could give unique insights on how these specific dialects are used in the modern digital age, or the code switchingthat might occur in speakers of a certain dialect \mbox{%DIFAUXCMD
+\citep{Biadsy}}\hspace{0pt}%DIFAUXCMD
+. There doesn't yet exist such a corpus created }\DIFdelend \DIFaddbegin \DIFadd{that are supported for automatic labelling, but also in many more regional languages and dialects.
+}
+
+\DIFadd{According to \mbox{%DIFAUXCMD
+\citet{ljub} }\hspace{0pt}%DIFAUXCMD
+it is impossible to extract information out of a text without knowledge of the language it is written in. Since regional languages and dialects remain mostly unlabeled by Twitter, there exists big untapped potential to retrieve information from such texts by first identifying its language. }\\
+
+
+\DIFadd{To be able to identify the language a text is written in, the text first has to be represented as features. This can be done in multiple ways. Two example are n-grams and the bag-of-words method. After the text is represented as features, the text can be classified. For this task, a machine learning model can be trained on a body of text. This model can then be tested on its accuracy.
+}
+
+\DIFadd{A lot of research has been done on the identification on languages this way, but less so on automatic dialect identification. The process of automatically identifying a regional dialect within a known language is harder than identifying a language, because regional languages have less differences with a known language than other languages do \mbox{%DIFAUXCMD
+\citep{streektalen}}\hspace{0pt}%DIFAUXCMD
+. Dialect identification can be useful to further understand the regional origin of a speaker, or to detect when 'code switching' occurs \mbox{%DIFAUXCMD
+\citep{Biadsy}}\hspace{0pt}%DIFAUXCMD
+. The combination of dialect identification and language identification is therefore a useful task. This why this research focuses on the creation of two corpora }\DIFaddend from Twitter messages\DIFdelbegin \DIFdel{that combines Frisian and Gronings, which is why this work will contribute to the scientific status quo. }\DIFdelend \DIFaddbegin \DIFadd{: one of the Frisian language and one of the Gronings dialect.}\\
+
+\DIFadd{While the official language of the Netherlands is Dutch, the northern province of Friesland has the second official language of Frisian \mbox{%DIFAUXCMD
+\citep{streektalen}}\hspace{0pt}%DIFAUXCMD
+. 
+The Frisian language belongs to the west Germanic branch of the Germanic language family and is closely related to English \mbox{%DIFAUXCMD
+\citep{streektalen}}\hspace{0pt}%DIFAUXCMD
+. Frisian is spoken in the Dutch province of Friesland and in the German states of 'Nedersaksen' and 'Sleeswijk-Holstein' \mbox{%DIFAUXCMD
+\citep{streektalen}}\hspace{0pt}%DIFAUXCMD
+. The variety of Frisian that is spoken in the Dutch province of Friesland is officially named West Frisian or 'Westerlauwers Fries'. Since this is the variety of Frisian that this research focuses on, will be just referred to as Frisian from now on. 
+}
+
+\DIFadd{Research in 2004 concluded that around 440.000 people in Friesland speak Fries, with around 350.000 native speakers \mbox{%DIFAUXCMD
+\citep{lewis}}\hspace{0pt}%DIFAUXCMD
+. A type of barbarism exists for Frisian, which in Dutch is appointed with the term 'frisisme'. A 'frisisme' happens when a word or syntactical structure is formed like it would be in Fries, in another language. An example of this would be the sentence: 'Ik lig op dit stuit in bad'. In proper Dutch, this sentence would be: 'Op dit moment lig ik in bad' and in proper Fries: 'Op dit stuit lig ik yn bad'. In this example, the 'frisisme' happens because the Fries word 'stuit' is mixed with a more Dutch syntactical structure. }\\
+\DIFaddend 
+
+\DIFdelbegin \section{\DIFdel{The Gronings dialect}}
+%DIFAUXCMD
+\addtocounter{section}{-1}%DIFAUXCMD
+\DIFdelend Gronings is a collection of multiple varieties of regional languages spoken mainly in the northern Dutch province of Groningen. The usage of Groningen is not just confined to the province of Groningen, as some disagreement exists whether or not the dialect spoken in the northern part of neighboring province Drenthe (referred to as 'Noordervelds' can be allocated to Gronings because of similar phonological characteristics; such as the 'ou' and 'ei' sounds which are typical for a Gronings dialect, rather than 'oe' and 'ie' which would be usual for the 'Drents' dialect \citep{streektalen}. Then there is the border with the province of Friesland, where the Gronings variety of 'Westerkwartiers' crosses territory.
+\DIFdelbegin \DIFdel{These two examples are main reasons why the Gronings dialect family is not just confined to the border of its province.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Gronings can be subdivided into seven main dialects: 'Stadjeders', Kollumpompers', 'Westerkwartiers', 'Hogelandsters', 'Oldambsters', 'Veenkoloniaals' and 'Westerwolds' (citation needed). 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{These dialects are not used as widely as they once were; research conducted in 2018 reported that around 65 percent of Groningen civilians can speak and write in the Gronings dialect \mbox{%DIFAUXCMD
+\citep{Sprekers}}\hspace{0pt}%DIFAUXCMD
+. while this means that Gronings is still one of the bigger dialects in the Netherlands, it also shows that usage has been in a decline. Gronings used to be the most prominent language of the province in the beginning of the 1900's, rather than being used by just 65 percent of civilians like it is now \mbox{%DIFAUXCMD
+\citep{Sprekers}}\hspace{0pt}%DIFAUXCMD
+. Younger generations in Groningen can often times speak the dialect to an extent, but will have the tendency to morph the dialect into a hybrid of regular Dutch and Gronings, as Dutch is the national norm for communication \mbox{%DIFAUXCMD
+\citep{streektalen}}\hspace{0pt}%DIFAUXCMD
+. Due to globalization, dialects in general are under pressure, because digital communication does not have the municipal constraints that dialects are built on \mbox{%DIFAUXCMD
+\citep{globalization}}\hspace{0pt}%DIFAUXCMD
+. This has lead to parents teaching their children Dutch as their first language in favour of  Gronings. Digital media make regional languages increasingly superfluous, which can be seen in the declining usage of these dialects.\mbox{%DIFAUXCMD
+\citep{globalization} 
+}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend 
+
+\DIFdelbegin \DIFdel{This }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend increased importance of Dutch over the last decades in Groningen has influences a hybrid of Dutch and Gronings \citep{globalization}. This so called 'Gronings Dutch' is a mixture of Dutch with syntactical or lexical characteristics of Gronings.  Examples would be the sentence 'Mag ik een puutje erbij?'. The proper Dutch sentence would be: 'Mag ik een tasje erbij?'. The Dutch Gronings sentence is identical except for the Gronings word: 'puutje'. Another example would be the Dutch Gronings sentence 'je doet me daar geen knup om toe'. In proper Dutch this sentence would be something like 'Je doet er geen knoop om'. Here more differences are visible; the Dutch Gronings sentence contains the Gronings word 'knup' and the Gronings syntactical structure of the place of the words: 'me' and 'ergens om toe'. 
+\DIFdelbegin \DIFdel{Other than that the two sentences are the same.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\section{\DIFdel{The Frisian language}}
+%DIFAUXCMD
+\addtocounter{section}{-1}%DIFAUXCMD
+\DIFdel{Like Gronings, the Frisian language is a collection of strongly related languages. The Frisian language belongs to the west Germanic branch of the Germanic language family and is closely related to English \mbox{%DIFAUXCMD
+\citep{streektalen}}\hspace{0pt}%DIFAUXCMD
+. These languages are spoken in the Dutch province of Friesland (also slightly crossing the border into Groningen in the municipality of 'Westerkwartier') and in the German states of 'Nedersaksen' and 'Sleeswijk-Holstein' \mbox{%DIFAUXCMD
+\citep{streektalen}}\hspace{0pt}%DIFAUXCMD
+. The variety of Frisian that is spoken in the Dutch province of Friesland is scientifically named 'Westerlauwers Fries'. Since this is the variety of Frisian that this research focusses on, will be just referred to as the regular Dutch designation of 'Fries' from now on. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Fries is the official second language of the Netherlands since 1956 and an official language in the province of Friesland, next to Dutch since 2013 }\footnote{\DIFdel{https://wetten.overheid.nl/BWBR0034047/2014-01-01}}%DIFAUXCMD
+\addtocounter{footnote}{-1}%DIFAUXCMD
+\DIFdel{. As an official language, a standard has been developed that is based on two of six main dialects of Fries: 'Kleifries' and 'Woudfries' \mbox{%DIFAUXCMD
+\citep{streektalen}}\hspace{0pt}%DIFAUXCMD
+. This standard (which is scientifically named Westerlauwers Fries) is used for educational and local governmental purposes. Fries is a mandatory subject in primary school in Friesland, which helps maintain the knowledge of the language among residents of Friesland }\footnote{\DIFdel{https://www.rijksoverheid.nl/onderwerpen/basisonderwijs/vraag-en-antwoord/welke-vakken-krijgt-een-kind-op-de-basisschool}}%DIFAUXCMD
+\addtocounter{footnote}{-1}%DIFAUXCMD
+\DIFdel{. Fries is also an optional subject in high school. Some universities, like the university of Groningen, provide the option of an educational master to become a teacher of Fries }\footnote{\DIFdel{https://www.rug.nl/masters/language-and-culture-education-frisian-language-and-culture/}}%DIFAUXCMD
+\addtocounter{footnote}{-1}%DIFAUXCMD
+\DIFdel{. }%DIFDELCMD < \\
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{As mentioned before, Fries can be subdivided into six main dialects: Kleifries, Woudfries, Zuidwesthoeks, Hindeloopers, Aalsters and Schiermonnikoogs. The first two mentioned Kleifries and Woudfries form the two most prevalent dialects in general use. \mbox{%DIFAUXCMD
+\citep{streektalen} }\hspace{0pt}%DIFAUXCMD
+Kleifries and Woudfries differ in pronunciation but are increasingly similar in vocabulary. An example of this is be the word for 'you', which is 'd\^{u} in Woudfries and 'do' in Kleifries. Or the word for 'thumb', which is 't\^{u}me' in Woudfries and 'tomme' in Kleifries.   It is worth mentioning that Aalsters and Schiermonnikoogs, the Frisian dialects of the islands 'Ter schelling' and 'Schiermonnikoog' have both an endangered status of 50-150 speakers left. \mbox{%DIFAUXCMD
+\citep{streektalen} }\hspace{0pt}%DIFAUXCMD
+}%DIFDELCMD < \\
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{A research in 2004 concluded that around 440.000 people in Friesland speak Fries, with around 350.000 native speakers \mbox{%DIFAUXCMD
+\citep{lewis}}\hspace{0pt}%DIFAUXCMD
+. A type of barbarism exists for Fries, which in Dutch is appointed with the term 'frisisme'. A 'frisisme' happens when a word or syntactical structure is formed like it would be in Fries, in another language. An example of this would be the sentence: 'Ik lig op dit stuit in bad'. In proper Dutch, this sentence would be: 'Op dit moment lig ik in bad' and in proper Fries: 'Op dit stuit lig ik yn bad'. In this example, the 'frisisme' happens because the Fries word 'stuit' is mixed with a more Dutch syntactical structure.
+}%DIFDELCMD < \\
+%DIFDELCMD < %%%
+\DIFdelend 
+
+\DIFaddbegin \DIFadd{Because of the described occurance of so-called 'frisismes' and texts that are hybrids of Dutch and Gronings, corpora will not exclude texts that contain Dutch lexical or syntactical features alongside Gronings or Frisian.
+ke 
+}\DIFaddend In this paper, the main question that is trying to be answered is: \emph{'is it possible to create a high quality corpus of a dialect and minority language on Twitter and to then use this corpus to identify tweets in Gronings and Frisian from Dutch tweets with high accuracy?'} 
+This main question is attempted to be answered by the following sub questions: 
+\begin{enumerate}
+
+\item To which extent is it possible to create a high-quality corpus from Tweets that contain the Gronings dialect using seeding terms and geolocation?
+\item To which extent is it possible to create a high-quality corpus from Tweets that contain the Frisian language using seeding terms and geolocation?
+\item To which extent is it possible with the created corpora to correctly identify Tweets in the Gronings dialect or Frisian language?
+
+\end{enumerate}
+
+
+\chapter{Background}
+
+\DIFdelbegin \section{\DIFdel{Language Identification}}
+%DIFAUXCMD
+\addtocounter{section}{-1}%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{Other than working on an approach of creating corpora, this research will focus on different kinds of approaches at classifying data. One key aspect in this regard is the way that data is represented in features. \mbox{%DIFAUXCMD
+\citet{scott} }\hspace{0pt}%DIFAUXCMD
+reports that most research uses the 'bag of words' method of representation, in which the data is represented as individual words from tokenized text. According to \mbox{%DIFAUXCMD
+\citet{scott}}\hspace{0pt}%DIFAUXCMD
+, the 'bag of words' method can be used together with the removal of stop words, stemming (i.e. reducing words to their morphological root), or lemmatization (i.e. using the dictionary form of a word) to reduce the complexity of features.
+}\DIFaddend Previous works of research have \DIFaddbegin \DIFadd{also }\DIFaddend shown the usefulness of the n-gram approach \DIFaddbegin \DIFadd{of representing features}\DIFaddend , where in text subsequent features are split in vectors of n items \citep{scott}. The n-gram approach is especially useful for categorization problems since this approach works the same regardless what language is being used \citep{silva}. Errors seem to be limited to the smaller, fragmented parts of the sentence, which is helpful for classifying language on platforms on the internet, where speech might not be standardized all the time \citep{silva}.
+
+A problem that the n-gram approach has however, is that the n-gram database can grow to excessively big proportions with a large training set, which is why often an alternative approach is chosen, such as the 'bag of words' approach, where texts are tokenized into vectors \citep{scott}.
+
+\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{joachims} }\hspace{0pt}%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citep{silva} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{joachims} }\hspace{0pt}%DIFAUXCMD
+and \mbox{%DIFAUXCMD
+\citet{silva} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend have shown the usefulness of 'support vector machine' ('support vector clustering' or SVC)\DIFaddbegin \DIFadd{, logistic regression }\DIFaddend and the 'naive Bayes' algorithms to execute the task of assigning language labels to the text. \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{joachims} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{joachims} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend found support vector machines to be currently the best performing methods for learning with text data and automatic parameter tuning through grid-search. 
+
+
+\section{Dialect Identification}
+
+Since not only the Frisian and the Dutch languages will be identified but also the Gronings dialect, this research will also include the field of dialect identification.  Dialect identification is the process of automatically determining if text contains content from a dialect and is very similar to the task of language identification. Dialect identification is harder because of the aspect that the \DIFdelbegin \DIFdel{classification happen between }\DIFdelend \DIFaddbegin \DIFadd{subjects of classification are }\DIFaddend a group of most often close languages, rather than separate languages \citep{zaidan}. Since dialects and corresponding languages often share the same script, large parts of their vocabulary \DIFaddbegin \DIFadd{and parts of their }\DIFaddend syntactical structure, they are harder to classify correctly \citep{zaidan}.
+
+Many research has been done in the last few years on identification of languages, but less research has been done on dialect identification. Most research regarding dialect recognition has been done on Arabic dialects\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{arabic1} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{arabic1} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend \citep{arabic2}. These works of research focus on creating a multi-dialectal corpus of Arabic through the use of geographical areas on Twitter, which seemed to be highly successful. \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{arabic1} }\hspace{0pt}%DIFAUXCMD
+is relevant to this research because both researches focus on the creation of a corpus and identification of one or more dialects.
+}\DIFaddend A difference with Arabic dialects however is that they differ so much from each other sometimes that they might not even be seen as dialects anymore. An example of this is the difference between the 'Maghreb' dialect, spoken in Morocco, and the 'Gulf' dialect, spoken in the UAE \citep{arabic1}. \\
+ \DIFdelbegin \DIFdel{Another paper has }\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{ciobanu-etal-2018-german} }\hspace{0pt}%DIFAUXCMD
+also }\DIFaddend researched identification of \DIFdelbegin \DIFdel{German dialects, but puts its attention towards the spoken word \mbox{%DIFAUXCMD
+\citep{ciobanu-etal-2018-german}}\hspace{0pt}%DIFAUXCMD
+, which used a SVM classifier that was trained on characters and words to classify transcripts of German dialects .  Working with transcript of dialects is also something Wieling has researched, who compared the Levenshtein distance of pronunciation between Dutch dialects \mbox{%DIFAUXCMD
+\citep{8d03acecd9a548408debaebdb5c528b6}}\hspace{0pt}%DIFAUXCMD
+. }\DIFdelend \DIFaddbegin \DIFadd{a dialects, in this case dialects of german.  Transcripts of spoken dialects in German are used to train SVM classifiers. These classifiers reached an F-score of 62.03 percent. \mbox{%DIFAUXCMD
+\citet{ciobanu-etal-2018-german} }\hspace{0pt}%DIFAUXCMD
+is relevant to this research because this research will also make use of an SVM classifier to compare results with. }\DIFaddend \\\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{limburg} }\hspace{0pt}%DIFAUXCMD
+found that textual identification for a dialect that is similar to the language that it is distinguished from, is a lot harder than classification between regular languages. In this research a naive Bayes and support vector machine classifier was trained to classify Limburgish text. Training a classifier to identify a dialect such a Limburgish was found to be a challenge at first, because of the fact that there were no existing corpora to be found \mbox{%DIFAUXCMD
+\citep{limburg}}\hspace{0pt}%DIFAUXCMD
+. }%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\section{\DIFdel{Identification of Twitter messages}}
+%DIFAUXCMD
+\addtocounter{section}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{section}{\DIFadd{Identification of Twitter messages}}
+\DIFaddend 
+
+According to \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{bergsma}}\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{bergsma}}\hspace{0pt}%DIFAUXCMD
+}\DIFaddend , correctly classifying a language from messages from Twitter is an especially hard task because of the nature of Twitter messages; they are short, informal of nature and they can be of numerous different languages. \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{bergsma} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{bergsma} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend gathered their data using the Twitter API and geographical location, which retrieved messages originating from different languages. Languages such as Nepali, Urdu and Ukrainian were then manually annotated. The dataset was then used to train a logistic regression classification model and a partial matching algorithm. The logistic regression model achieved an accuracy score of over 90 percent \citep{bergsma}.
+
+\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{Tratz} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{Tratz} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend focused on classifying Twitter messages of three languages using multinomial logistic regression and SVM's. The research implemented the \DIFdelbegin \DIFdel{dataset }\DIFdelend \DIFaddbegin \DIFadd{data set }\DIFaddend from Bergsma et al. (2012) together with their own that was comprised of Arabic, Farsi and Urdu and got similar results, nearing results of almost 100 percent. The dataset was comprised of 1100 Twitter messages. Then this same model was trained using the Zaidan and Callison-Burch (2011) \DIFdelbegin \DIFdel{dataset}\DIFdelend \DIFaddbegin \DIFadd{data set}\DIFaddend , with 3000 tweets from one Arabic dialect and 3000 tweets from other Arabic dialects, using SVM's. This time the algorithm scored significantly worse, with an accuracy of about 80 percent. \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citep{Tratz} }\hspace{0pt}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citet{Tratz} }\hspace{0pt}%DIFAUXCMD
+}\DIFaddend suggested that the worse score was due to complicated differences between Arabic dialects.
+
+\DIFdelbegin \DIFdel{These two researches both come to the conclusion that seems prevalent in language and dialect identification research : that the identification of dialects is significantly harder than the identification of languages. For this research , this entails that perhaps more attention should be brought to parameter tuning and feature selection if accuracy scores should be too low}\DIFdelend \DIFaddbegin \DIFadd{Lastly, research by \mbox{%DIFAUXCMD
+\citet{Wieling} }\hspace{0pt}%DIFAUXCMD
+showed a linear support vector machine trained on character features, reaching f-measures of 87.56. Following the research by \mbox{%DIFAUXCMD
+\citet{Wieling} }\hspace{0pt}%DIFAUXCMD
+the decision was made that data tokenization could not happen on just a word level but also a character level, which is why this extra comparison is added to the research}\DIFaddend .
+
+% \input{background}    % if you have a separate file background.tex
+\DIFaddbegin 
+
+%DIF >  \input{background}    % if you have a separate file background.tex
+\DIFaddend \chapter{Data and Material}
+
+\section{Collection} 
+In this study,  \DIFdelbegin \DIFdel{we use }\DIFdelend the free version of the Twitter API \DIFdelbegin \DIFdel{. The use of the }\DIFdelend \DIFaddbegin \DIFadd{is used. This }\DIFaddend free version, however, imposes some limitations on the data collection. First there is a maximum for querying Tweets of 180 requests per 15 minutes and Tweets can only be queried that are submitted in the last seven days. In order to build \DIFdelbegin \DIFdel{an initial collection of tweets that generally contain texts of the chosen (regional) languages that is substantial enough to work with}\DIFdelend \DIFaddbegin \DIFadd{Gronings and Frisian corpora that are large enough for research purposes}\DIFaddend , a query script was run \DIFdelbegin \DIFdel{weekly }\DIFdelend \DIFaddbegin \DIFadd{every week }\DIFaddend since the beginning of April. \\
+
+\DIFdelbegin \DIFdel{To make sure that mostly Twitter messages in Gronings or Frisian are returned, this research starts by making two sets of keywords. These keywords are words that are prevalent in Gronings or Frisian Twitter messages, but not for neighboring other used languages in the area, such as Dutch, English or German. First, general Twitter messages are queried for the areas Groningen and Friesland. Then, 100 messages of each is manually annotated. These messages are compared with 100 Dutch Twitter messages to find high information words. These high information words are added to the set of keywords to query more Twitter messages.}%DIFDELCMD < 
+
+%DIFDELCMD < \begin{figure}[t]
+%DIFDELCMD <   \includegraphics[width=\linewidth]{map.png}
+%DIFDELCMD <   %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{A map with the radius of geographical constraints for the Friesland and Groningen}}
+%DIFAUXCMD
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Corpus creation}}
+\DIFadd{The Twitter API can be used to restrict results to a certain geolocation-bound area. This area is defined as a certain location, with a value for the radius of the area. This functionality is useful in the case of this research, since restricting results to the respective provinces where Gronings or Frisian are mainly spoken can improve the frequency of tweets in the relevant language of dialect.}\\
+\DIFaddend The geolocation functionality only supports a radial specified area, which by itself already poses a challenge since the province of Groningen cannot be well specified within a circle. To solve this issue, a general approach was chosen, by choosing the village of 'Ten Boer' with a radius of 24km the largest parted of Groningen's inhabited locations could be reached by the algorithm. Since the shape of the province of Friesland lends itself better to a radial shape, less sacrifices in terms of reach had to be endured with the village of Grou and a radius of 30km covering most of the province. The \DIFdelbegin \DIFdel{initial process of gathering Tweets from a geolocation specified area without having established a set of keywords to querywould probably be }\DIFdelend \DIFaddbegin \DIFadd{choice for a single circle for each province was due to the fact that the query script was run locally and already required high computing power. This choice is further discussed in the Discussions section.}\\
+
+\begin{figure}[H]
+  \includegraphics[width=0.7\textwidth]{map.png}
+  \caption{\DIFaddFL{A map with the radius of geographical constraints for the Friesland and Groningen}}
+\end{figure}
+
+\DIFadd{Initially, gathering Twitter messages will be solely done by geolocation, without any terms as a query. For both Gronings and Frisian, the first 180 messages of that are the result of this process will be manually annotated by a native speaker. The number 180 means that these messages can be gathered without invoking a delay due to the limits of the API. Of all messages that are labeled as Gronings or Frisian, keyword sets are developed to increase the accuracy of finding relevant Tweets. These keyword sets are made by tokenizing and then creating two frequency lists of the tokens of all messages that were labeled as Gronings and Fries. For N messages that were manually labeled as one of these categories, N keywords were chosen. The choice of extracting the same amount of keywords as the number of documents comes from the fact that each document has at least one word in the target (regional) language. The resulting keywords are also annotated by the same native speaker to be of the appropriate category. This process is continued until 50 keywords are found. This number was chosen because 50 seemed adequate enough to continue to the next step of retrieving more keywords, whereas lower numbers provided too little results.
+}
+
+\DIFadd{The next step, in order to extend the number of keywords, is calculating terms that co-occur with keywords on }\DIFaddend a \DIFdelbegin \DIFdel{tedious task especially for Gronings , as anecdotally, we've never come across a message on Twitter in the Gronings dialect. }\DIFdelend \DIFaddbegin \DIFadd{higher-than-chance basis. This is done by using pointwise Mutual Information. PMI quantifies the chance of two words co-occurring with each other, while taking the frequency of single words into account. As can be seen in equation 1, PMI is the logarithmic probability of the co-occurrence of words a and b, divided by the independent probability of words a and b. A positive value for PMI signifies that words co-occur more frequently than would be expected when independence is assumed. Terms that have a positive PMI score for co-locations with existing keywords will be manually annotated to make sure they belong to Gronings or Frisian. These new keywords are then added to the existing list if this is the case. This process is repeated after each week, after new Twitter messages are gathered. The list of keywords can be found in the online repository }\footnote{\DIFadd{https://github.com/lennartschepers/scriptie}}
+
+\begin{equation}
+\DIFadd{\operatorname{PMI}(a, b)=\log \left(\frac{P(a, b)}{P(\mathrm{a}) \mathrm{P}(\mathrm{b})}\right)
+}\end{equation}
+\DIFaddend \\
+
+The API will be \DIFdelbegin \DIFdel{run continuously }\DIFdelend \DIFaddbegin \DIFadd{queried weekly }\DIFaddend for at least 2 months searching for messages that contain at least \DIFaddbegin \DIFadd{one }\DIFaddend of the keywords, \DIFdelbegin \DIFdel{after which filtering of the acquired dataset starts. Unrelated languages are filtered using NLTK dictionaries. Datasets for each Gronings and Fries are separated through filtering documents to at least contain three keywords out of their respective keyword sets. A Dutch dataset of equal size is compiled using the API's language parameter, which has support for Dutch. The final result of this filtering process is a dataset of 1000 Twitter messages for both Gronings, Fries and Dutch.
+}\DIFdelend \DIFaddbegin \DIFadd{and have a geographic location tag that is within the limitations that are specified for Gronings and Frisian. Duplicates will be filtered out of the process, so every message is unique. This prevents any over fitting on spam that might occur.
+}\DIFaddend 
+
+
+\DIFdelbegin %DIFDELCMD < \newpage
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \section{\DIFadd{annotation}}
+\DIFadd{The first section that will be annotated are the keywords. 50 possible keywords that are chosen by frequency are annotated to make sure that they are a Gronings or Frisian term. For Gronings, the native speaker from Groningen will annotate every keyword as either Gronings or not-Gronings and for Frisian vice versa. Keywords found through high PMI scores are continuously reviewed by the annotators in the same way on a weekly basis.
+}\DIFaddend 
+
+\DIFdelbegin \section{\DIFdel{annotation}}
+%DIFAUXCMD
+\addtocounter{section}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \DIFadd{Naturally, not only the keywords are manually tagged, but also the Twitter messages that are gathered as well. }\DIFaddend The goal of \DIFdelbegin \DIFdel{annotation is the make a dataset }\DIFdelend \DIFaddbegin \DIFadd{annotating the data set of Twitter messages is to make a data set }\DIFaddend with predefined categories, so a machine learning algorithm can be trained and tested in a proper way, without making false assumptions. Without annotated data, supervised machine learning will be impossible.  \\
+\DIFdelbegin \DIFdel{Tweets will be annotated as either 'NED' , '}\DIFdelend \DIFaddbegin \DIFadd{For Frisian, Twitter messages are tagged as '}\DIFaddend FRI' \DIFdelbegin \DIFdel{or }\DIFdelend \DIFaddbegin \DIFadd{when containing Frisian language and as 'NO' when no Frisian language seems to be present in the message. For Gronings these labels were }\DIFaddend 'GRO' \DIFdelbegin \DIFdel{, for respectively Dutch, Frisian and Gronings. About 500 }\DIFdelend \DIFaddbegin \DIFadd{and 'NO'. 1000 }\DIFaddend Gronings tweets were manually \DIFdelbegin \DIFdel{annotated by one native speaker . 100 }\DIFdelend \DIFaddbegin \DIFadd{identified by native speaker from Groningen and 1000 }\DIFaddend Frisian tweets were manually \DIFdelbegin \DIFdel{annotated by one different native speaker . The reason for these different figures is that not enough Twitter messages for Gronings could be gathered in the collection phase to reliably annotate these messages automatically, which is why the manual annotation rate is higher for Gronings. Since Frisianmessages }\DIFdelend \DIFaddbegin \DIFadd{identified by a native speaker from Friesland. }\\
+
+\DIFadd{The native speakers for both (regional) languages were given the following annotation guidelines: A message should be tagged as 'FRI'/'GRO' when the native speaker recognizes lexicon that belong to Gronings/Frisian. When at least one word is recognized as such, the message should be labeled with 'FRI'/'GRO. The rest of the message can be in Dutch. If a word is recognized as Frisian/Gronings but the rest of the Tweet does not }\DIFaddend seem to be \DIFdelbegin \DIFdel{ubiquitous, it was decided that the rest of the dataset was annotated automatically by filtering documents that contained at least five keywords. Since Twitter automatically assigns a language label to tweets from one of its 34 supported languages \mbox{%DIFAUXCMD
+\citep{Hughes}}\hspace{0pt}%DIFAUXCMD
+, Dutch Twitter messages did not require manual annotation}\DIFdelend \DIFaddbegin \DIFadd{in Dutch or that specific (regional) language, the message can not be tagged as Frisian/Gronings. This is because a multitude of languages are found in both provinces, even with the selected keyword list. Annotating a different language based on (false) cognates obviously does not help the machine learning models to classify the correct dialect or language. Since the native language of Friesland and Groningen is Dutch, we can safely assume that 'code-switching' takes place between their regional language and Dutch. This is why the annotator can only assume a 'FRI'/'GRO' label when at least one word of their (regional) language is recognized, with the rest being either Dutch or that same language. The word that is found can also be recognized, not as a Frisian/Gronings word, but as a Dutch word, that is changed to have clear lexical features of Frisian/Gronings. This is also sufficient for a 'FRI'/'GRO' label. This research is about messages that }\emph{\DIFadd{contain}} \DIFadd{a specific regional language, which is why one element is already deemed sufficient}\DIFaddend . \\
+\DIFaddbegin 
+
+\DIFaddend For each Fries and Gronings, the manual annotation part is done by one person. This begs the explanation of a possible annotation bias. Since only one native speaker annotated the foundation of this research, there is a possibility of inaccuracies when the annotator labels very selective documents. A classifier might for example perform unrealistically well, when for \DIFdelbegin \DIFdel{Fries }\DIFdelend \DIFaddbegin \DIFadd{Frisian }\DIFaddend mostly documents are annotated that contain specific \DIFdelbegin \DIFdel{language for }\DIFdelend \DIFaddbegin \DIFadd{elements, not necessarily related to }\DIFaddend Fries, which a classifier can easily identify. One annotator might select a group of documents that would not necessarily reflect a random group of documents of a particular language. \DIFaddbegin \DIFadd{All annotated data can be found in the online repository }\footnote{\DIFadd{https://github.com/lennartschepers/scriptie}}
+\DIFaddend 
+
+\section{\DIFdelbegin \DIFdel{Processing}\DIFdelend \DIFaddbegin \DIFadd{Pre-Processing}\DIFaddend }
+As far as \DIFdelbegin \DIFdel{preprocessing goes, little will done. Texts will be turned to lowercase and comma's }\DIFdelend \DIFaddbegin \DIFadd{pre-processing goes, some elements of Twitter messages will be removed. Usernames and hashtags will discarded, since these are characteristic of Twitter messages in general and not for Gronings or Frisian in particular. The goal of this research is to use the textual information of the messages itself, and not the information that specific to Twitter. The research focuses on natural language processing, rather than the identification of prevalence that hashtags or usernames might have. Not removing these features could lead to over fitting, since recent trends could influence the prevalence of certain hashtags and only Twitter messages of the last two months are used. }\\
+\DIFadd{Hyperlinks, 'RT' and emojis }\DIFaddend will be removed \DIFdelbegin \DIFdel{to write the data to a CSV. Usernames in messages will be kept, just like hyperlinks and hashtags}\DIFdelend \DIFaddbegin \DIFadd{for the same reason; they are not the point of this research. All punctuation will be removed equally and text will be turned to lowercase.
+}
+
+\section{\DIFadd{Data Distribution}}
+\DIFadd{The result of pre-processing is a data set that can be used by classification models. The data set will be split into a train, development and test set. The training set is used to generalize the classification model to predict unseen data. The purpose of training data is to find the optimal parameters of classification models and for the models to learn about the patterns that the training set might have. }\\
+\DIFadd{The Development set is the part of the data that is used to rank all models that are used in terms of how accurate they are in their predictions the classification model to predict unseen data. The purpose of training data is to find the optimal parameters of classification models and for the models to learn about the patterns that the training set might have. }\\
+\DIFadd{In this research, the Development set is the part of the data that is used to rank classification models' performance through different kinds of feature selection. To prevent any bias from occurring, it is important that the final test set is held out from earlier classification where parameters and feature representation are still being experimented with. This is why the development set exists to compare the effect of different kinds of feature representation. The representation with the best score for each model is used on the final Test set. In this final set, different classifiers will be compared to each other. }\\
+\DIFadd{Following industry standards, the train set will be comprised of 80 percent of the data set, the development and test sets will both be comprised of 10 percent of the data set. }\\
+\DIFadd{The full data set for Frisian consists of 1000 messages that contain Frisian, and about 500 messages that do not contain Frisian. This ratio of two to one is the same ratio that was found on the Twitter API when querying for messages that contained at least one of the most recent list of keywords within the geographically limited area. This means that for Frisian, the train set will consist of 800 Frisian Tweets and 400 non-Frisian Tweets. The development and test sets then consist of 100 Frisian tweets and 50 non-Frisian Tweets.}\\
+\DIFadd{Gronings Tweets seemed much less prevalent. This is why a higher priority was chosen for messages that contained at least two keywords. These messages became candidate for annotation before messages that contained just one keyword. After annotating with this heuristic in mind, a ratio of about 1/1.5, Gronings to non-Gronings Tweets were annotated with the last version of the keyword set. This is why the data set for Gronings has 1000 Tweets that contains Gronings and 1500 Tweets that do not contain Gronings. This means that, for Gronings, the training set consists of 800 Gronings Tweets, 1200 non-Gronings Tweets. The development and test sets are comprised of 100 Gronings and 150 non-Gronings Tweets}\DIFaddend .
+
+
+\chapter{Methodology}
+
+\section{\DIFdelbegin \DIFdel{Execution}\DIFdelend \DIFaddbegin \DIFadd{Features}\DIFaddend }
+\DIFdelbegin \DIFdel{The purpose of this research is to find a method of automatically distinguishing Gronings and Fries from Dutch. if accurate enough, this method could in the future then be used to increase the established corpus in the collection phase with minimal supervision}\DIFdelend \DIFaddbegin \DIFadd{In order to use the data to train a classifier, the data set will have to be represented as features. This research will use different methods of representation and compare their results. These features are computed by tokenization, which is the process of dividing a text into meaningful subsections, or tokens. In this research, tokenization is done by diving sentences into words that are limited by white space. In addition to this, tokenization will also happen by single characters.}\\
+\DIFadd{First,the 'bag of words' method will be used. The }\emph{\DIFadd{bag}} \DIFadd{in this case is a multi set of the tokens in a Twitter message. A multi set is a data structure that, like a set, disregards the original order of the words. Unlike a set though, multiplicity of tokens is taken into account; the same word can occur more than once in a 'bag of words'. The count of each word in a document, or Twitter message, is registered. In this way, a Twitter message is converted from text, to a vector of numbers, where every number is the count for each word in the set of total words. This often comes down to a set of mostly zeros. The process of converting a document to this kind of representation is called 'vectorization'.}\\
+
+\DIFadd{Another method of representation that this research will use is the 'bag of n-grams' approach. While a 'bag of words' representation does not keep track of word order, a 'bag of n-gram' representation does. An 'n-gram' represents a text as adjacent sequences of }\emph{\DIFadd{n}} \DIFadd{words or tokens, where }\emph{\DIFadd{n}} \DIFadd{is the amount of words or tokens that each sequence has. A bag of words can similarly be seen as a bag of unigrams. Other than the 'bag of unigrams', this research will also make use of bi-grams (2-grams), trigrams (3-grams), 4-grams and 5-grams and compare the results. }\\
+
+\section{\DIFadd{TF-IDF}}
+\DIFadd{The previously mentioned methods of vectorization produce vectors of the count of words or n-grams. In addition this form of vectorization, another form called 'TF-IDF' will be computed. TF-IDF stands for 'term frequency-inverse document frequency. This measure not only takes into account how often a word or token occurs in a document, but also how (in)frequent a token across all documents. This means that word that are frequent in documents in general will provide a lower value in the resulting vector of a document. This method provides a way to associate tokens in documents with how relevant they are to that document. A machine learning model might classify differently with this extra information. This is why TF-IDF is used, to see if it has positive effects on the classifiers.
+}
+
+
+\section{\DIFadd{Execution}}
+\DIFadd{The purpose of this research is to create two corpora and to see to which extend these corpora can be used to automatically identify tweets that contain Gronings or Frisian language}\DIFaddend . 
+To be able to automatically create a corpus of Fries or Gronings, a model needs to be trained to accurately identify Gronings and Fries documents from Dutch documents. \DIFdelbegin %DIFDELCMD < \\
+%DIFDELCMD < %%%
+\DIFdel{The two machine learning algorithms that are used are naive Bayes and SVC.}\DIFdelend The \DIFdelbegin \DIFdel{naive Bayes algorithm will make use of smoothing to increase accuracy. Its C-level will be kept at a default of 1, since that has proven to be most accurate insimilar research \mbox{%DIFAUXCMD
+\citep{limburg}}\hspace{0pt}%DIFAUXCMD
+. The SVC algorithm will be use of grid-search to automatically determine }\DIFdelend \DIFaddbegin \DIFadd{two different models that will be used for the classification task are the Naive Bayes model, the support vector machine model and the logistic regression model.}\\
+
+\subsection{\DIFadd{Naive Bayes}}
+\DIFadd{The Naive Bayes model is a type of algorithm that makes use of Bayes' Theorem and probability theory to predict the label of a text. Bayes Theorem is an equation that can be used to calculate the probability of a hypothesis being true, in relation with the probability of the hypothesis not being true. In the case of this research, Bayes' Theorem can be used to calculate the probability that a certain Twitter message is written in (regional) language X, in relation with the probability of a certain Twitter message is }\emph{\DIFadd{not}} \DIFadd{written in (regional) language X (see equation 2, where D is a document and K is a category). Naive Bayes makes use of probability theory by calculating for each text the probability for every label and then choosing the highest probability. The term "Naive" in Naive Bayes refers to the assumption in the model that features are independent, rather than taking certain distributions into account. 
+}\begin{equation}
+\DIFadd{P(D \mid K)=\frac{P(K \mid D) P(D)}{P(K)}
+}\end{equation}
+
+
+\subsection{\DIFadd{Support Vector Machine}}
+\DIFadd{The support vector machine, or SVM, is a classifier that can learn to distinguish different categories, or classes, by representing the data points in a particular space and then by choosing a 'hyperplane' that most adequately divides data points of different categories. A hyperplane is a subspace that is one dimension lower than the corresponding space it is in. If the data is in a two-dimensional space (e.g. as dots on a graph) then the hyperplane that the SVM will attempt to separate the data with will be one-dimensional (e.g. a line). The hyperplane that offers the most separation (the biggest margin) between the different categories, will be chosen to classify further data with. 
+The way the SVM calculates the hyperplane that provides the biggest margin between data of different categories is by searching for data points of different categories, which are named 'support vectors'. This explains the name of the model; the closest points of different categories form a vector and the best line for separation of categories is 'supported' by the closest data points. }\\
+
+\DIFadd{Support vector machines have a way to automatically calculate }\DIFaddend the best performing parameters\DIFdelbegin \DIFdel{. 50 percent of the data is used to train the models. The bag of words method }\DIFdelend \DIFaddbegin \DIFadd{, called 'grid-search'. This process works by giving a possible range of options for each parameter that the SVM can work with in the train set, after which the best performing parameters are chosen. 
+}
+
+\subsection{\DIFadd{Logistic Regression}}
+\DIFadd{The last classification model that is used in this research is logistic regression. Logistic regression is a regression model that predicts the chance that a data point belongs to category. To do this, logistic regression models the data using a 'sigmoid' function (see equation 3). The 'e' in equation 3 stands for 'Eulers' number, which roughly comes down to 2.7183. Since this research focuses on a model predicting if a message belongs to a certain category or not, binomial logistic regression }\DIFaddend will be used\DIFdelbegin \DIFdel{to represent the features in each document. }\DIFdelend \DIFaddbegin \DIFadd{, which means that the output can be of only two types. The logistic regression model is heavily depended on a threshold. The threshold that provides best separation of data points will be used.
+}\begin{equation}
+\DIFadd{f(x)=\frac{1}{1+e^{-x}}
+}\end{equation}
+\DIFaddend 
+
+
+\section{Evaluation}
+
+
+The \DIFdelbegin \DIFdel{test set is a subset with 50 percent of the whole dataset.
+The two different }\DIFdelend \DIFaddbegin \DIFadd{Naive Bayes,SVM and logistic regression }\DIFaddend models will classify the documents in this training \DIFaddbegin \DIFadd{for each of the feature representation types}\DIFaddend . The result of \DIFdelbegin \DIFdel{this process }\DIFdelend \DIFaddbegin \DIFadd{the classification }\DIFaddend will be compared to the golden standard of correct labels. \DIFdelbegin \DIFdel{These labels are either manually assigned, or chosen by filtering documents that contain at least five keywords from a pre-compiled keywords set. These keyword sets are manually made with keywords that are unique to the dialect or language for that area and were shown were shown to be highly informative in tweets that were initially gathered. These keywords can be found in the appendix. 
+}\DIFdelend \DIFaddbegin \DIFadd{To evaluate the classification of the different models in conjunction with the different feature representation types, different measures are calculated. These measures are based on:
+}\begin{enumerate}
+    \item \DIFadd{'True positive' (a model correctly classified a document }\emph{\DIFadd{positively}}\DIFadd{, or as 'having a certain label) 
+    }\item \DIFadd{'True negative' (a model correctly classifies a document }\emph{\DIFadd{negatively}}\DIFadd{, or as 'not having a certain label)
+    }\item \DIFadd{'False positive (a model incorrectly classifies a document positively)
+    }\item \DIFadd{'False negative (a model incorrectly classifies a document negatively)
+}\end{enumerate}
+\DIFadd{From these values, three different measures will be calculated:
+}\subsection{\DIFadd{precision}}
+\DIFadd{Precision is the proportion of true positives among all positives: }\\
+\DIFadd{Precision \( =\frac{\text { True Positive }}{\text { True Positive }+\text { False Positive }} \)
+}\\
+\subsection{\DIFadd{recall}}
+\DIFadd{Recall calculates how many actual positives are classified by the model as true positive: }\\
+\DIFadd{Recall \( =\frac{\text { True Positive }}{\text { True Positive }+\text { False Negative }} \)
+}
+
+\subsection{\DIFadd{F-measure}}
+\DIFadd{The f-measure, or F1-score, calculates the weighted average of precision and recall where extreme values are penalized: }\\
+\DIFadd{F1 \(= 2 \cdot \frac{\text { precision } \cdot \text { recall }}{\text { precision }+\text { recall }} \)
+The weighted average of the s-measures of both categories will be the main form of evaluation used in graphs. This means that the f-measure is multiplied with the amount of documents in that category and then averaged out. Other types of evaluation will be used as further explanation. 
+}\\
+ \DIFaddend 
+
+Labels for the languages are translated to one of three integers for the machine learning algorithms are shown in \DIFdelbegin \DIFdel{figure }\DIFdelend \DIFaddbegin \DIFadd{figures }\DIFaddend 2 \DIFdelbegin \DIFdel{:
+}\DIFdelend \DIFaddbegin \DIFadd{and 3:
+}\newpage
+\DIFaddend 
+
+\begin{figure}[h]
+\begin{tabular}{ll}
+	FRI & 0 \\
+	\DIFdelbeginFL \DIFdelFL{NED }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{NO }\DIFaddendFL & 1 \\
+\DIFaddbeginFL \end{tabular}
+	\caption{\DIFaddFL{The original annotated label (Frisian and non-Frisian vs the output that the models will give}}
+\end{figure}
+
+\begin{figure}[h]
+\begin{tabular}{ll}
+	\DIFaddendFL GRO & \DIFdelbeginFL \DIFdelFL{2 
+}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0 }\\
+	\DIFaddFL{NO }& \DIFaddFL{1 }\\
+\DIFaddendFL \end{tabular}
+	\caption{The original annotated label \DIFaddbeginFL \DIFaddFL{(Gronings and non-Gronings }\DIFaddendFL vs the output that the models will give}
+\end{figure}
+
+
+\DIFdelbegin \DIFdel{The classifier will compare its classified labels with the verified golden standard. The Naive Bayes and SVC models will make use of ten-fold cross validation. Every fold will return a table with the categories, precision scores, recall scores and the average F-measure for the three categories. After these ten tables with averages, a global average will be computed. Finally, the ten most informative features will be returned}\DIFdelend \DIFaddbegin \chapter{\DIFadd{Results and Discussion}}
+\section{\DIFadd{Vectorization comparison}}
+\DIFadd{As described earlier, for each model and feature representation, results will be compared of count vectorization versus TF-IDF vectorization.
+}
+
+\subsection{\DIFadd{SVM}}
+
+\DIFadd{As we can see in figure 4 and 5, in the Gronings set the SVM resulted in a very slight change of weighted f-measures when comparing count vectorization versus TF-IDF vectorization. When tokens are represented by character, both vectorization types give almost the same f-measure as output. The bag of words representation has the count vectorization at a 0.01 higher weighted f-measure and at trigrams does the TF-IDF vectorization have a 0.01 higher score. When tokenization happens on a word level, the difference is again very marginal; with an output of 0.02 higher for count vectorization at bigram representation and a 3.01 higher weighted f-measure for TF-IDF at 4-gram level. TF-IDF vectorization seems to be performing better, since the absolute highest weighted f-measure is in both comparisons yielded by using TF-IDF}\DIFaddend .
+
+\DIFdelbegin \chapter{\DIFdel{Results and Discussion}}
+%DIFAUXCMD
+\addtocounter{chapter}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \begin{figure}[H]
+  \includegraphics[width=1\textwidth]{grosvmchars.png}
+  \caption{\DIFaddFL{Output of the SVM on the Gronings development set where features are represented as characters }}
+\end{figure}
+\DIFaddend 
+
+\DIFdelbegin \section{\DIFdel{Results}}
+%DIFAUXCMD
+\addtocounter{section}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \begin{figure}[H]
+  \includegraphics[width=1\textwidth]{grosvmwords.png}
+  \caption{\DIFaddFL{Output of the SVM on the Gronings development set where features are represented as words}}
+\end{figure}
+\DIFaddend 
+
+
+\DIFdelbegin %DIFDELCMD < \begin{figure}[h]
+%DIFDELCMD < \begin{tabular}{llll}
+%DIFDELCMD < 	%%%
+\DIFdelFL{category }%DIFDELCMD < & %%%
+\DIFdelFL{precision }%DIFDELCMD < & %%%
+\DIFdelFL{recall }%DIFDELCMD < & %%%
+\DIFdelFL{F-measure }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.944954 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.971698 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.941176 }%DIFDELCMD < & %%%
+\DIFdelFL{0.969697 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0.988506 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994220 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.973913 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.986784 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995455 }%DIFDELCMD < & %%%
+\DIFdelFL{0.977679 }%DIFDELCMD < & %%%
+\DIFdelFL{0.986486 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0.993976 }%DIFDELCMD < & %%%
+\DIFdelFL{0.982143 }%DIFDELCMD < & %%%
+\DIFdelFL{0.988023 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994083 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997032 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997050 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994118 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995582 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0.991903 }%DIFDELCMD < & %%%
+\DIFdelFL{0.987903 }%DIFDELCMD < & %%%
+\DIFdelFL{0.989899 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.991228 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995595 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{In figure 6 we can see that for Frisian, slightly bigger differences occur when text is tokenized by character. Only for a 'bag of words' representation is there a slightly higher weighted f-measure for count vectorization. From bigram to 5-gram, TF-IDF vectorization gives either higher, or equal weighted f-measure output. This is why TF-IDF is the preferred choice in terms of vectorization when text is tokenized on a character level.  Figure 7 shows us a smaller difference when tokenization happens on a word-level. Here f-measure outputs are very similar again, with TF-IDF only seeming favorable at 'bag of words'. Count vectorization produces either slightly higher or equal results from bigram representation on. Since TF-IDF again produces the highest f-measure however, it will be chosen as the preferred vectorization method for word tokenization on this set as well. 
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{friessvmchar.png}
+  \caption{\DIFaddFL{Output of the SVM on the Frisian development set where features are represented as characters}}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{friessvmwords.png}
+  \caption{\DIFaddFL{Output of the SVM on the Frisian development set where features are represented as words}}
+\end{figure}
+
+
+\subsection{\DIFadd{Logistic Regression}}
+
+\DIFadd{Figure 8 shows substantial differences between vectorization types when logistic regression is applied on the Gronings development set, tokenized by character. Count vectorization seems clearly favorable. Figure 9 shows similar results when tokenization happens on a word level, with count vectorization yielding higher measures on all levels of representation.
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{gronbchars.png}
+  \caption{\DIFaddFL{Output of the logistic regression model on the Gronings development set where features are represented as characters}}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{gronbwords.png}
+  \caption{\DIFaddFL{Output of the logistic regression model on the Gronings development set where features are represented as words}}
+\end{figure}
+
+\DIFadd{We can see this trend continue on Figure 10, where the Frisian development set is represents features as characters. Count vectorization leads to overall better scores. When these features are represented as words however, this difference seems smaller. On figure 11 we can see that count vectorization still yields higher f-measures until trigrams, but then both vectorization types seem to converge to 0.53. For both tokenization types, count vectorization seems to be preferred while using logistic regression.
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{friesnbchar.png}
+  \caption{\DIFaddFL{Output of the logistic regression model on the Frisian development set where features are represented as characters}}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{friesnbword.png}
+  \caption{\DIFaddFL{Output of the logistic regression model on the Frisian development set where features are represented as words}}
+\end{figure}
+
+\subsection{\DIFadd{Naive Bayes}}
+
+\DIFadd{On the Gronings development set we can see on figure 12 that for character-level tokenization, the highest f-measures are yielded by count vectorization, except for bigram representation. When features are represented by bigrams, TF-IDF just barely yields a higher weighted f-measure by 0.01. This is not the case when tokenization happens by words. As we can see on figure 13, count vectorization yields a stable higher f-measure. In both cases the absolute highest weighted f-measure is produces by using count vectorization
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{grologchars.png}
+  \caption{\DIFaddFL{Output of the naive Bayes model on the Gronings development set where features are represented as characters}}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{grologwords.png}
+  \caption{\DIFaddFL{Output of the naive Bayes model on the Gronings development set where features are represented as words}}
+\end{figure}
+
+\DIFadd{On figure 14 we see a trend that looks slightly similar to figure 12, where TF-IDF vectorization only yields a better result when features are represented as bigrams. Every other representation type outputs a better weighted f-measure with count vectorization, with the absolute highest score being 0.93 for trigrams based on character-level tokenization with count vectorization. For word-level tokenization, displayed in figure 15, we can see a similar trend as the one in figure 11, were count vectorization yields the best f-measure when features are represented as 'bag of words', but again in figure 15 we see that from trigram feature representation on, f-measures converge to 0.53. Count vectorization again seems preferred. 
+}\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{frieslogchars.png}
+  \caption{\DIFaddFL{Output of the naive Bayes model on the Frisian development set where features are represented as characters}}
+\end{figure}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{frieslogwords.png}
+  \caption{\DIFaddFL{Output of the naive Bayes model on the Frisian development set where features are represented as words}}
+\end{figure}
+
+\section{\DIFadd{Model comparison}}
+
+
+ \DIFadd{On both Gronings and Frisian development sets, for character and word based tokenization, the classification methods are compared to each other using the vectorization method that yielded the highest result respectively. We can see all three classification methods' performance on the Gronings development set where tokenization happens on a character-level. All models here use count vectorization. As we can see, logistic regression yields the highest results all around on this set, producing a weighted f-measure of 0.92 for 4-grams.
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{grochars.png}
+  \caption{\DIFaddFL{A comparison of all three classification models with their respective chosen vectorization type, on the Gronings development set where tokenization is done on a character level.}}
+\end{figure} 
+
+\DIFadd{When the set is tokenized by words, the results are different. We can see in figure 17 that the highest score is achieved by SVM on bag of word, with a weighted f-measure of 0.93. The highest f-measures for all the other n-grams are for logistic regression. Since the overall performance was best by using an SVM, this classifier will be chosen for further comparison.
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{growords.png}
+  \caption{\DIFaddFL{A comparison of all three classification models with their respective chosen vectorization type, on the Gronings development set where tokenization is done on a word level.}}
+\end{figure}
+
+\DIFadd{Then for the Frisian data set, we compare the models with text that is tokenized as characters. The SVM here uses TF-IDF vectorization and the others use count vectorization.  In figure 18 we can see that the three models seem to follow a similar curve, with logistic regression performing the best for 'bag of words' and bigrams. For trigrams however, the SVM and naive Bayes outperform logistic regression, with a weighted f-measure of 0.93 for both models. This is the highest overall f-measure in this comparison. Since Both classifiers are tied in this respect, the classifier with the highest average of weighted f-measures in figure 18 will be chosen. The average of weighted f-measures for SVM in this plot is 0.844 and the average weighted f-measure for naive Bayes is 0.85. This means that naive Bayes will be chosen for further comparison.
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{frichars.png}
+  \caption{\DIFaddFL{A comparison of all three classification models with their respective chosen vectorization type, on the Frisian development set where tokenization is done on a character level.}}
+\end{figure} 
+
+\DIFadd{In figure 19 we can see the comparison for the Frisian data set when tokenization happens on a word level. Surprisingly enough, the naive Bayes has the best performance on 'bag of words', with a weighted f-measure of 0.94, which is the highest score yet. On further n-grams however, naive Bayes falls short, being either the lowest performing classifier or equal on 4-grams and 5-grams. As it produces the highest weighted f-measure, naive Bayes, with the Frisian development set tokenized by words will be chosen for further comparison.
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{friwords.png}
+  \caption{\DIFaddFL{A comparison of all three classification models with their respective chosen vectorization type, on the Frisian development set where tokenization is done on a word level.}}
+\end{figure} 
+
+\section{\DIFadd{Further comparison}}
+\DIFadd{Now that the best performing combinations of vectorization and classifier type are chosen for each language, they will be further compared by tokenization type. These final comparisons will be evaluated using the test set of both Gronings and Frisian. In figure 20 we can see that, for the Gronings test set, word tokenization produces the best weighted f-measure. We can see a trend that for 'bag of words' and bigrams, word tokenization performs better, and for the other n-grams character tokenization performs better. Since word tokenization produces the best f-measure, it will be chosen for language comparison. In the table under figure 20 we can see how the highest f-measures for both character and word level tokenization came about. We can see that the precision for category }\DIFaddend 1 \DIFdelbegin %DIFDELCMD < & %%%
+\DIFdel{1.000000 }%DIFDELCMD < & %%%
+\DIFdel{0.995536 }%DIFDELCMD < & %%%
+\DIFdel{0.997763 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdel{2 }%DIFDELCMD < & %%%
+\DIFdel{1.000000 }%DIFDELCMD < & %%%
+\DIFdel{0.993976 }%DIFDELCMD < & %%%
+\DIFdel{0.996979 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelend \DIFaddbegin \DIFadd{(non-Gronings) when tokenization happens by character is 0.88. In addition to that, the recall for category }\DIFaddend 0 \DIFaddbegin \DIFadd{(Gronings) is 0.84. Both of these values are low compared to the precision and recall scores for word tokenization. This is why word tokenization scored slightly better in this comparison.
+}
+
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{gro.png}
+  \caption{\DIFaddFL{A comparison of the best performing models with their respective chosen vectorization types, when tokenization happens on a character and a word level for the Gronings test set.}}
+\end{figure} 
+
+\begin{table}[H]
+\begin{tabular}{lllll}
+\DIFaddFL{tokenization }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.991228 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995594 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995536 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997763 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{category }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{precision }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.993976 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{recall }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.99698 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{f-measure }\DIFaddendFL \\ \hline
+\DIFdelbeginFL \DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.984720 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.992301 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994575 }%DIFDELCMD < & %%%
+\DIFdelFL{0.992780 }%DIFDELCMD < & %%%
+\DIFdelFL{0.993677 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.980296 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{character }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.990050 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelendFL 0 & \DIFdelbeginFL \DIFdelFL{0.984642 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.992261 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.989267 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994605 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997506 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.93      }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.990099 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.84   }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.992789 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.88   }\DIFaddendFL \\
+\DIFdelbeginFL %DIFDELCMD < \hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.976793 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{character }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.988260 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelendFL 1 & \DIFdelbeginFL \DIFdelFL{0.995475 }%DIFDELCMD < & %%%
+\DIFdelFL{0.982143 }%DIFDELCMD < & %%%
+\DIFdelFL{0.988764 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0.993671 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.88      }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.978193 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.95   }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.985871 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.91      }\DIFaddendFL \\ \hline
+\DIFdelbeginFL \DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.976793 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.988260 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995475 }%DIFDELCMD < & %%%
+\DIFdelFL{0.982143 }%DIFDELCMD < & %%%
+\DIFdelFL{0.988764 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0.993671 }%DIFDELCMD < & %%%
+\DIFdelFL{0.978193 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{word }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.985871 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelendFL 0 & \DIFdelbeginFL \DIFdelFL{0.988732 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994334 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994100 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997041 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.91      }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.991453 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.92   }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.995708 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.92      }\DIFaddendFL \\
+\DIFdelbeginFL %DIFDELCMD < \hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.991701 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{word }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.995833 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelendFL 1 & \DIFdelbeginFL \DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.94      }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.987421 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.93   }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.993671 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.93    }\DIFaddendFL \\ \hline
+
+\end{tabular}
+\DIFaddbeginFL \end{table}
+
+
+\DIFadd{In figure 21 we can see that for Frisian, the tokenization types follow a similar trend as can be seen in figure 20; for 'bag of words', word level tokenization yields the absolute highest score. On all other n-grams however, character level tokenization performs better. Since word level tokenization produces the highest f-measure, it will be chosen for language comparison. In the table under figure 21 we can see how the highest weighted f-measures came about. What becomes evident is that for both forms of tokenization, category 1 (non-Frisian) have both relatively low precision and recall scores. This explains why both f-measures seem to be on the low side. It seems that the classifier for this data set has a bias towards category 0.
+}
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{fri.png}
+  \DIFaddendFL \caption{\DIFdelbeginFL \DIFdelFL{The results returned }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{A comparison of the best performing models with their respective chosen vectorization types, when tokenization happens on a character and a word level }\DIFaddendFL for the \DIFdelbeginFL \DIFdelFL{ten Naive Bayes folds}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Frisian test set.}\DIFaddendFL }
+\end{figure} 
+
+\DIFdelbegin %DIFDELCMD < \newpage
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{table}[H]
+   \DIFaddendFL 
+
+    \DIFdelbeginFL %DIFDELCMD < \begin{figure}[t]
+%DIFDELCMD < \begin{tabular}{llll}
+%DIFDELCMD < 	%%%
+\DIFdelendFL \DIFaddbeginFL \begin{tabular}{lllll}
+    \DIFaddFL{tokenization }& \DIFaddendFL category & precision & recall & \DIFdelbeginFL \DIFdelFL{F-measure }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	 %%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000  }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000  }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000  }%DIFDELCMD < \\
+%DIFDELCMD < 	 %%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.973214  }%DIFDELCMD < &%%%
+\DIFdelFL{1.000000  }%DIFDELCMD < & %%%
+\DIFdelFL{0.9864253 }%DIFDELCMD < \\
+%DIFDELCMD < 	 %%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000  }%DIFDELCMD < & %%%
+\DIFdelFL{0.963855  }%DIFDELCMD < & %%%
+\DIFdelFL{0.981595 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	 %%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000  }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000  }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < \\
+%DIFDELCMD < 	 %%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.973214  }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000  }%DIFDELCMD < & %%%
+\DIFdelFL{0.986425 }%DIFDELCMD < \\
+%DIFDELCMD < 	 %%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000  }%DIFDELCMD < & %%%
+\DIFdelFL{0.963855  }%DIFDELCMD < & %%%
+\DIFdelFL{0.981595 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	 %%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < \\
+%DIFDELCMD < 	 %%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.993827 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996904 }%DIFDELCMD < \\
+%DIFDELCMD < 	 %%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.991935 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995951 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997797 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995604 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996699 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.980044 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.989921 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996942 }%DIFDELCMD < & %%%
+\DIFdelFL{0.973134 }%DIFDELCMD < & %%%
+\DIFdelFL{0.984894 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{f-measure }\DIFaddendFL \\ \hline
+    \DIFdelbeginFL \DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996448 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.998220 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.989399 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994671 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.980907 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{character }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.990361 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelendFL 0 & \DIFdelbeginFL \DIFdelFL{0.998195 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.999101 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.989726 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994836 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.87      }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.982885 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.85   }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.991369 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.86   }\DIFaddendFL \\
+    \DIFdelbeginFL %DIFDELCMD < \hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995526 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{character }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.997758 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelendFL 1 & \DIFdelbeginFL \DIFdelFL{0.997821 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.998909 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.70      }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.990881 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.74   }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.995420 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.72      }\DIFaddendFL \\ \hline
+    \DIFdelbeginFL \DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996997 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.998496 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994269 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997126 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.987755 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{word }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.993840 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelendFL 0 & \DIFdelbeginFL \DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.986607 }%DIFDELCMD < & %%%
+\DIFdelFL{0.993258 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.983193 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.991525 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.86      }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.993671 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.89   }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.996825 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.87      }\DIFaddendFL \\
+    \DIFdelbeginFL %DIFDELCMD < \hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{0 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{word }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{1.000000 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelendFL 1 & \DIFdelbeginFL \DIFdelFL{0.991597 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995781 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{1.000000 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.75      }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.986486 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.70   }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{0.993197 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{0.73    }\DIFaddendFL \\ \hline
+
+    \end{tabular}
+  \DIFdelbeginFL %DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{The results returned for the ten SVC folds}}
+%DIFAUXCMD
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < %%%
+\DIFdelendFL 
+
+\DIFdelbeginFL %DIFDELCMD < \begin{figure}[h]
+%DIFDELCMD < \begin{tabular}{lll }
+%DIFDELCMD < 	%%%
+\DIFdelFL{\# }%DIFDELCMD < & %%%
+\DIFdelFL{Naive Bayes }%DIFDELCMD < & %%%
+\DIFdelFL{SVC }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{0.977272 }%DIFDELCMD < & %%%
+\DIFdelFL{0.990260 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{0.987012 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995130 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{3 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994588 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997835 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{4 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996753 }%DIFDELCMD < & %%%
+\DIFdelFL{0.991071 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{5 }%DIFDELCMD < & %%%
+\DIFdelFL{0.992207 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994805 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{6 }%DIFDELCMD < & %%%
+\DIFdelFL{0.993506 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995455 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{7 }%DIFDELCMD < & %%%
+\DIFdelFL{0.987824 }%DIFDELCMD < & %%%
+\DIFdelFL{0.997565 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{8 }%DIFDELCMD < & %%%
+\DIFdelFL{0.995670 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996753 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{9 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996753 }%DIFDELCMD < & %%%
+\DIFdelFL{0.993506 }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{10 }%DIFDELCMD < & %%%
+\DIFdelFL{0.983766 }%DIFDELCMD < & %%%
+\DIFdelFL{0.996753 }%DIFDELCMD < \\
+%DIFDELCMD < 	\hline
+%DIFDELCMD < 	%%%
+\DIFdelFL{average }%DIFDELCMD < & %%%
+\DIFdelFL{0.990535 }%DIFDELCMD < & %%%
+\DIFdelFL{0.994913
+}\DIFdelendFL \DIFaddbeginFL \end{table}
+\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \end{tabular}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdel{The ten average f-scores and the overall average}}
+%DIFAUXCMD
+%DIFDELCMD < \end{figure}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{Then finally, the best combination of tokenization and vectorization with the best performing classifier will be used to compare the Gronings and Frisian data sets. For the Gronings test set, SVM was chosen as the preferred classifier, with TF-IDF vectorization and tokenization on a word level. The Frisian test was evaluated using a logistic regression classifier, with count vectorization and also tokenization on a word level. In figure 22 we can see that the Gronings data set scored better than the Frisian data set. The highest weighted f-measure are reported as 0.93 for Gronings and 0.82 for Frisian, both for 'bag of words'. The Gronings set also has better f-measures for bigrams and trigrams. For 4-grams and 5-grams, the Frisian test set seems to yield better f-measures. Overall we can conclude that the Gronings data set produces better f-measures than the Frisian data set. This could signify that, at least in the test set, the Gronings data set is more distinctive from the non-Gronings set, than Frisian is with its non-Frisian counterpart. 
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \begin{figure}[h]
+%DIFDELCMD < \begin{tabular}{ll}
+%DIFDELCMD < 	%%%
+\DIFdelFL{1 }%DIFDELCMD < & %%%
+\DIFdelFL{'boer' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{2 }%DIFDELCMD < & %%%
+\DIFdelFL{'lang' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{3 }%DIFDELCMD < & %%%
+\DIFdelFL{'ze' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{4 }%DIFDELCMD < & %%%
+\DIFdelFL{'fan' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{5 }%DIFDELCMD < & %%%
+\DIFdelFL{'nl' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{6 }%DIFDELCMD < & %%%
+\DIFdelFL{'mei' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{7 }%DIFDELCMD < & %%%
+\DIFdelFL{'it' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{8 }%DIFDELCMD < & %%%
+\DIFdelFL{'zijn' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{9 }%DIFDELCMD < & %%%
+\DIFdelFL{'niet' }%DIFDELCMD < \\
+%DIFDELCMD < 	%%%
+\DIFdelFL{10 }%DIFDELCMD < & %%%
+\DIFdelFL{'ook' 
+}%DIFDELCMD < \end{tabular}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{The ten most informative features}}
+%DIFAUXCMD
+\DIFdelendFL \DIFaddbeginFL \begin{figure}[H]
+  \includegraphics[width=1\textwidth]{all.png}
+  \caption{\DIFaddFL{A comparison of the Gronings test set (SVM) and the Frisian test set (naive Bayes)}}
+\DIFaddendFL \end{figure} 
+
+\section{Discussion}
+\DIFdelbegin \DIFdel{As is shown in figure 3 and figure 4, both the SVC and }\DIFdelend \DIFaddbegin 
+
+\DIFadd{In figure 22 we can see that }\DIFaddend the \DIFdelbegin \DIFdel{Naive Bayes models performed very well. Average F-measures returned as respectively 0.995 for the SVC model and 0.991 for the Naive Bayes model as shown in figure 5. These two measures are far beyond expectations. Similar research that covered the task of language identification had similar scores (citation needed) and similar dialect identification tasks had mostly lower scores as output. }\DIFdelend \DIFaddbegin \DIFadd{f-measures for Frisian are unexpectedly low. Since the same parameters on the development yielded an f-measure of 0.94, more than a top value of 0.82 was expected. In the table under figure 21, at the 'word' tab, we can see that the precision and recall for category 1 (non-Frisian) were relatively low. There thus seems to be a bias in the classifier to predict category 0 too frequently. This bias could be the result of an unbalanced test set. This is unlikely as all sets are shuffled and then are divided in equal parts. It could happen that by chance more ambiguous messages happen to fall in the test set. It might also be a result of different forms of annotation; maybe the annotator for the Gronings set made less ambiguous choices for labels than the Frisian annotator did. As the expected 0.94 was at 'bag of words', it is likely that important words from the test set missed.}\DIFaddend \\
+
+\DIFdelbegin \DIFdel{These high results come as a surprise, as similar approaches to comparative research that was mentioned in the background section. Naive Bayes and SVC models were used in relevant research with lower scores \mbox{%DIFAUXCMD
+\citep{bergsma}}\hspace{0pt}%DIFAUXCMD
+. The parameter values are chosen through grid-search, which is not unusual in the field of machine learning. One reason for these high results could be that the Twitter messages for each of the three categories of Frisian , Dutch and Gronings is highly unique. Through the selection process of finding unique keywords, these messages all have unique features that could make them easier to classify. As is visible in the top ten most informative features, words such as 'ek', 'fan' , 'mei' and 'it' are predominantly Frisian. Even though 'mei' also has a dutch meaning, nearly no Dutch Twitter messages made reference to this word. The word 'boer' was most often used for the classification of messages in the Gronings category .  }%DIFDELCMD < \\
+%DIFDELCMD < %%%
+\DIFdel{An interesting result , because this word is the same in all three categories. This means that in this dataset messages in the Gronings dialect mention the word 'boer' extensively more than either Dutch or Frisian . Dutch terms such as: 'lang', 'ze', 'nl', 'zijn', 'niet' and 'ook' were all predominantly words used to correctly classify documents as Dutch. These are all often occurring words and thus not surprising, except for the word 'nl'}\DIFdelend \DIFaddbegin \DIFadd{It would either way be a better idea to have multiple annotators per language in stead of one. Annotator bias could lead to reduced applicability of these classification models to external data. Another point of improvement lies in the Twitter query script that was run weekly}\DIFaddend . In this \DIFdelbegin \DIFdel{dataset, 74 documents contain the token 'nl', which are all correctly classified as Dutch. This could either be the result of an often reoccurring abbreviation for ones own country, or a small bias in the dataset. It seems that the corpora for eachGronings and Frisian are both very unique, which makes it possible that the correct classification rate is so high.  }\DIFdelend \DIFaddbegin \DIFadd{script, geolocation in the form of a circle in the provinces of Friesland and Groningen was specified. The choice for just one circle came from the fact that in this state, the script already used enough computational power. This way, Frisian and Gronings received a limited representation on twitter, using only one circle for each. Using more computer power to use multiple circles would have been a better choice, since this would vastly improve the full representation of Frisian and Gronings.  }\\
+\DIFaddend 
+
+
+
+
+\chapter{Conclusion}
+This research attempted to investigate the possibility of creating a high quality corpus of a dialect and minority language on Twitter and to use this corpus to identify Tweets in Gronings and Frisian from Dutch Tweets with high accuracy.
+In order to achieve this, \DIFdelbegin \DIFdel{First the possibility of creating high quality corpora of tweets in both Gronings and Fries with geographical constraints was looked into. This proved harder for Gronings, as usage of this dialect is far less prevalent on Twitter. With manually annotated initial Tweets , a set of keywordswas used to more narrowly specify queries which resulted in more Gronings Tweets, which could then be used to further increase a keyword set .}%DIFDELCMD < \\
+%DIFDELCMD < %%%
+\DIFdel{Frisian proved to be easier at gathering data. Even without keywords high quality Frisian messages were already in excess. Still, a list of keywords that was reported as most informative wasmade. }\DIFdelend \DIFaddbegin \DIFadd{the research question: 'is it possible to create a high-quality corpus of a dialect and minority language on Twitter and to then use this corpus to identify Tweets with high accuracy?' was formed. To answer this question, a set of sub-questions were formulated. The first sub-question was formulated as: 'To which extend is it possible to create a high-quality corpus from Tweets that contain the Gronings dialect, using seeding terms and geolocation'. After two months of querying a script, using geolocation and a growing list of keywords, an annotated corpus of 1000 unique messages in Gronings was developed. Every message in this corpus contained at least one word that was perceived to be Gronings by a native speaker. In addition to this, a accompanying set of 1500 messages that were identified as non-Gronings was identified. To answer the first sub-question, it is possible to create a high quality corpus using seeding terms and geolocation in the sense that a 1000 Tweets can be properly identified in a time frame of 2 months. }\DIFaddend \\
+
+\DIFdelbegin \DIFdel{Both corpora were confined to a maximum of }\DIFdelend \DIFaddbegin \DIFadd{The second sub-question that was formulated was: 'To which extend is it possible to create a high-quality corpus from Tweets that contain the Frisian language, using seeding terms and geolocation'. This question can be answered in the same way as the previous sub-question. }\DIFaddend 1000 \DIFdelbegin \DIFdel{documents. On half of these corpora, a naive Bayes and SVC model was trained. These models are then tested on the other half of the corpora, using ten-fold cross-validation. The results of these models turned out to be very high, reporting F-measures of 99.1 and 99.5 percent for naive Bayes and SVC respectively}\DIFdelend \DIFaddbegin \DIFadd{Tweets were equally identified by a native speaker in the span of two months. For Frisian, only 500 accompanying, non-Frisian Tweets were identified before the number of 1000 Frisian Tweets was achieved . We can thus conclude that identifying messages on Twitter that contain the Frisian language is easier than doing so for Gronings. It is possible to create a high-quality corpus from Tweets that contain the Frisian language, using seeding terms and geolocation, in the sense that a 1000 messages that contain the Frisian language were identified in the span of two months}\DIFaddend . \\
+
+The \DIFdelbegin \DIFdel{resulted corporafor Gronings and Fries seem to be of quite high quality textual-wise. Most language in these corpora is not Dutch as documents have a minimum of five Gronings / Frisian words. The models trained on these corpora show very high scores, showing that it is }\DIFdelend \DIFaddbegin \DIFadd{final sub-question to answer the research question was formulated as: 'To which extent is it possible, with the created corpora, to correctly identify Tweets in the Gronings dialect and the Frisian language'. To answer this question, first two vectorization methods, count and TF-IDF, were compared on all classification models and tokenization types. Using the best performing results, classification models were compared with different tokenization methods were compared with each other. The result of this extensive comparison is that on the Gronings set, a SVM classifying data that was tokenized on a word level with TF-IDF performed the best. On this Frisian set, a naive Bayes model that classified data that was tokenized as words, without TF-IDF performed best. To answer the sub-question: a final test set comparison ruled that the Gronings corpus could be classified with a weighted f-measure of 0.93 and the Frisian corpus could be classified with a weighted f-measure of 0.83. }\\
+
+\DIFadd{To answer the research question: 'Is it }\DIFaddend possible to create \DIFaddbegin \DIFadd{a }\DIFaddend high-quality \DIFdelbegin \DIFdel{corpora from Twitter messages and to use those corpora to identify }\DIFdelend \DIFaddbegin \DIFadd{corpus of a dialect and minority language on Twitter and to then use this corpus to identify Tweets with high accuracy?', the answer would be yes. It is possible to create a high quality corpus of 1000 annotated }\DIFaddend messages that contain \DIFdelbegin \DIFdel{Fries and Gronings .
+A limitation of this work is that the exceedingly high score could be helped by annotator bias, since only one annotator for each Gronings and Fries participated.
+}\DIFdelend \DIFaddbegin \DIFadd{(regional) language from both Gronings and Frisian, and with this corpus it is possible to identify Tweets with a relatively high accuracy of weighted f-measures of 0.93 for Gronings and 0.83 for Frisian.
+}
+
+
+\DIFaddend %----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\bibliographystyle{aclnatbib} 
+\bibliography{thesis-IK}
+
+
+
+\end{document}
+
